@@ -42,7 +42,9 @@
 
 ;;===================hungry-delete=================
 (global-hungry-delete-mode)
-
+(add-hook 'python-mode-hook 'anaconda-mode)
+(eval-after-load "company"
+ '(add-to-list 'company-backends '(company-anaconda :with company-capf)))
 ;;===================swiper(ivy)=================
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
