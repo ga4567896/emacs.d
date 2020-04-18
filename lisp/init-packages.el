@@ -14,6 +14,7 @@
 			 linum-relative
 			 evil
 			 evil-escape
+			 evil-leader
 			 ein
 			 ibuffer-vc
 			 smartparens
@@ -23,6 +24,8 @@
 			 magit
 			 tramp
 			 org-pomodoro
+			 powerline
+			 ace-window
 			 ) "Default packages")
 
 (setq package-selected-packages Shawn/packages)
@@ -82,6 +85,9 @@
 
 ;;===================org-pomodoro=================
 (require 'org-pomodoro)
+
+;;===================ace-window=================
+(global-set-key (kbd "M-o") 'ace-window)
 
 ;;===================END==================
 (provide 'init-packages)

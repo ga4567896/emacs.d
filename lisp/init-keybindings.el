@@ -10,8 +10,6 @@
 
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
-(global-set-key (kbd "<C-tab>") 'other-window)
-
 (global-set-key (kbd "<f2>") 'open-my-init-file)
 
 (global-set-key (kbd "C-c p f") 'counsel-git)
