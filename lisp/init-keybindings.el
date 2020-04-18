@@ -18,7 +18,7 @@
 
 (global-set-key (kbd "C-c a") 'org-agenda)
 
-
+(global-set-key (kbd "C-w") 'backward-kill-word)
 
 (put 'dired-find-alternate-file 'disable nil)
 (with-eval-after-load 'dired

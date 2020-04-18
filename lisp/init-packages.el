@@ -7,7 +7,7 @@
 (defvar Shawn/packages '(
 			 company
 			 company-anaconda
-			 monokai-theme
+			 dracula-theme
 			 hungry-delete
 			 swiper
 			 counsel
@@ -21,6 +21,8 @@
 			 expand-region
 			 iedit
 			 magit
+			 tramp
+			 org-pomodoro
 			 ) "Default packages")
 
 (setq package-selected-packages Shawn/packages)
@@ -55,11 +57,14 @@
 (smartparens-global-mode)
 (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil)
 
+(add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
+(add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
+
 ;;===================popwin=================
 (popwin-mode t)
 
 ;;===================theme=================
-(load-theme 'monokai t)
+(load-theme 'dracula t)
 
 ;;===================expand-region=================
 (global-set-key (kbd "C-=") 'er/expand-region)
@@ -70,6 +75,13 @@
 
 ;;===================magit=================
 (require 'magit)
+
+;;===================tramp=================
+(require 'tramp)
+(setq tramp-default-method "plink")
+
+;;===================org-pomodoro=================
+(require 'org-pomodoro)
 
 ;;===================END==================
 (provide 'init-packages)

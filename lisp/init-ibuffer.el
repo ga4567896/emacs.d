@@ -26,13 +26,11 @@
 
   (setq ibuffer-saved-filter-groups
         (quote (("default"
-                 ("code" (or (mode . emacs-lisp-mode)
-                             (mode . cperl-mode)
+                 ("code" (or (mode . cperl-mode)
                              (mode . c-mode)
                              (mode . java-mode)
                              (mode . idl-mode)
                              (mode . web-mode)
-                             (mode . lisp-mode)
                              (mode . js2-mode)
                              (mode . c++-mode)
                              (mode . lua-mode)
@@ -53,11 +51,6 @@
 
                  ("ipynb" (name . "ipynb\*"))
 
-		 ("Text" (mode . text-mode))
-
-                 ("dired" (or (mode . dired-mode)
-                              (mode . sr-mode)))
-
                  ("erc" (mode . erc-mode))
 
                  ("planner" (or (name . "^\\*Calendar\\*$")
@@ -66,7 +59,14 @@
                                 (mode . org-mode)
                                 (mode . org-agenda-mode)))
 
-                 ("emacs" (or (name . "^\\*scratch\\*$")
+		 ("Text" (mode . text-mode))
+
+                 ("dired" (or (mode . dired-mode)
+                              (mode . sr-mode)))
+
+                 ("emacs" (or (mode . emacs-lisp-mode)
+			      (mode . lisp-mode)
+			      (name . "^\\*scratch\\*$")
 			      (name . "^\\*Messages\\*$")))
 		 ("ein" (name . "\*ein"))
 
