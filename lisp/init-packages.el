@@ -7,25 +7,30 @@
 (defvar Shawn/packages '(
 			 company
 			 company-anaconda
+			 smartparens
+
 			 dracula-theme
 			 hungry-delete
 			 swiper
 			 counsel
-			 linum-relative
 			 evil
 			 evil-escape
 			 evil-leader
+			 evil-surround
 			 ein
 			 ibuffer-vc
-			 smartparens
 			 popwin
 			 expand-region
 			 iedit
 			 magit
 			 tramp
 			 org-pomodoro
+
 			 powerline
 			 ace-window
+			 winum
+			 linum-relative
+
 			 ) "Default packages")
 
 (setq package-selected-packages Shawn/packages)
@@ -86,8 +91,36 @@
 ;;===================org-pomodoro=================
 (require 'org-pomodoro)
 
-;;===================ace-window=================
-(global-set-key (kbd "M-o") 'ace-window)
+;;===================org-pomodoro=================
+(require 'powerline)
+(powerline-default-theme)
 
+;;===================ace-window=================
+;; (setq aw-background nil)
+
+(setq aw-dispatch-always t)
+
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+
+(defvar aw-dispatch-alist
+  '((?x aw-delete-window "Delete Window")
+    (?m aw-swap-window "Swap Windows")
+    (?M aw-move-window "Move Window")
+    (?c aw-copy-window "Copy Window")
+    (?j aw-switch-buffer-in-window "Select Buffer")
+    (?n aw-flip-window)
+    (?u aw-switch-buffer-other-window "Switch Buffer Other Window")
+    (?C aw-split-window-fair "Split Fair Window")
+    (?v aw-split-window-vert "Split Vert Window")
+    (?b aw-split-window-horz "Split Horz Window")
+    (?o delete-other-windows "Delete Other Windows")
+    (?? aw-show-dispatch-help))
+  "LIST of actions for `aw-dispatch-default'.")
+
+
+;;===================winum-=================
+(require 'winum)
+
+(winum-mode)
 ;;===================END==================
 (provide 'init-packages)

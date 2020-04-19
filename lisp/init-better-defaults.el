@@ -62,4 +62,6 @@
   (call-interactively 'occur))
 (global-set-key (kbd "M-s o") 'occur-dwim)
 
-(provide 'init-better-defaults)
+
+
+
