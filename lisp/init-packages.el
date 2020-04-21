@@ -7,6 +7,7 @@
 (defvar Shawn/packages '(
 			 company
 			 company-anaconda
+			 rainbow-delimiters
 			 smartparens
 
 			 dracula-theme
@@ -27,6 +28,7 @@
 			 org-pomodoro
 
 			 powerline
+			 diminish
 			 ace-window
 			 winum
 			 linum-relative
@@ -68,6 +70,11 @@
 (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
 (add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
 
+;;===================rainbow-delimiters=================
+(require 'rainbow-delimiters)
+(add-hook 'emacs-lisp-mode #'rainbow-delimiters-mode)
+(add-hook 'lisp-mode #'rainbow-delimiters-mode)
+
 ;;===================popwin=================
 (popwin-mode t)
 
@@ -91,9 +98,13 @@
 ;;===================org-pomodoro=================
 (require 'org-pomodoro)
 
-;;===================org-pomodoro=================
+;;===================powerline=================
 (require 'powerline)
-(powerline-default-theme)
+(powerline-center-evil-theme)
+
+;;===================diminish=================
+(require 'diminish)
+
 
 ;;===================ace-window=================
 ;; (setq aw-background nil)

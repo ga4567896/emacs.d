@@ -16,7 +16,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(font-lock-doc-face ((t (:foreground "#ff79c6"))))
+ '(font-lock-doc-face ((t (:background "#631F16" :foreground "white"))))
  '(iedit-occurrence ((t (:inherit region))))
  '(mode-line ((t (:background "dark slate gray" :foreground "unspecified-fg" :inverse-video nil :box (:line-width 1 :color "#44475a")))))
  '(region ((t (:inherit highlight :background "blue violet"))))
