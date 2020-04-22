@@ -18,7 +18,10 @@
 			 evil-escape
 			 evil-leader
 			 evil-surround
+
 			 ein
+			 pyvenv
+
 			 ibuffer-vc
 			 popwin
 			 expand-region
@@ -27,6 +30,7 @@
 			 tramp
 			 org-pomodoro
 
+			 use-package
 			 powerline
 			 diminish
 			 ace-window
@@ -48,6 +52,10 @@
   (dolist (pkg Shawn/packages)
     (when (not (package-installed-p pkg))
       (package-install pkg))))
+
+
+;;===================use-package=================
+(require 'use-package)
 
 ;;===================company=================
 (global-company-mode t)
@@ -133,5 +141,14 @@
 (require 'winum)
 
 (winum-mode)
+
+;;===================pyvenv-=================
+(use-package pyvenv
+  :ensure t
+  :init
+  (setenv "WORKON_HOME" "C:/Users/Shawn/anaconda3/envs/tensorflow")
+  (pyvenv-mode 1)
+  (pyvenv-tracking-mode 1))
+
 ;;===================END==================
 (provide 'init-packages)

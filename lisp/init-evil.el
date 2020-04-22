@@ -52,6 +52,8 @@
   "gf" 'counsel-git ; find file
   "gg" 'counsel-git-grep ; quickest grep should be easy to press
 
+  "ew" 'pyvenv-workon
+
   "ms" 'bookmark-set
   "mj" 'bookmark-jump
   "ml" 'bookmark-bmenu-list

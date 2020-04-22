@@ -6,6 +6,10 @@
   (ibuffer-switch-to-saved-filter-groups "default"))
 
 (with-eval-after-load "ibuffer"
+
+  ;; Let "j" can be use in ibuffer
+  (define-key evil-normal-state-map (kbd "J") 'ibuffer-jump-to-buffer)
+
   ;; Use human readable Size column instead of original one
   (define-ibuffer-column size-h
     (:name "Size" :inline t)
@@ -97,9 +101,7 @@
                 " "
                 filename-and-process)))
 
+
   (setq ibuffer-filter-group-name-face 'font-lock-doc-face))
-
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-
 
 (provide 'init-ibuffer)
