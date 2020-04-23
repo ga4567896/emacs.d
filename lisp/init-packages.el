@@ -146,7 +146,9 @@
 (use-package pyvenv
   :ensure t
   :init
-  (setenv "WORKON_HOME" "C:/Users/Shawn/anaconda3/envs/tensorflow")
+  ;; (setenv "WORKON_HOME" "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v10.2/bin")
+  ;; (setenv "WORKON_HOME" "c:/Users/Shawn/anaconda3/envs/tensorflow")
+  (setenv "WORKON_HOME" "c:/Users/Shawn/anaconda3/envs")
   (pyvenv-mode 1)
   (pyvenv-tracking-mode 1))
 

@@ -8,7 +8,7 @@
 (with-eval-after-load "ibuffer"
 
   ;; Let "j" can be use in ibuffer
-  (define-key evil-normal-state-map (kbd "J") 'ibuffer-jump-to-buffer)
+  ;; (define-key evil-normal-state-map (kbd "J") 'ibuffer-jump-to-buffer)
 
   ;; Use human readable Size column instead of original one
   (define-ibuffer-column size-h

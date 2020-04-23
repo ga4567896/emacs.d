@@ -53,10 +53,14 @@
   "gg" 'counsel-git-grep ; quickest grep should be easy to press
 
   "ew" 'pyvenv-workon
+  "er" 'ein:run
 
   "ms" 'bookmark-set
   "mj" 'bookmark-jump
   "ml" 'bookmark-bmenu-list
+
+  "lm" 'linum-mode
+  "lr" 'linum-relative-mode
   )
 
 (provide 'init-evil)
