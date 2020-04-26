@@ -18,6 +18,8 @@
 
 (global-set-key (kbd "C-w") 'backward-kill-word)
 
+(global-set-key (kbd "C-u") 'evil-scroll-up)
+
 (put 'dired-find-alternate-file 'disable nil)
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))

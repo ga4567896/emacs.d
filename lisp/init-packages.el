@@ -14,10 +14,12 @@
 			 hungry-delete
 			 swiper
 			 counsel
+
 			 evil
 			 evil-escape
 			 evil-leader
 			 evil-surround
+			 evil-nerd-commenter
 
 			 ein
 			 pyvenv
@@ -29,6 +31,7 @@
 			 magit
 			 tramp
 			 org-pomodoro
+			 which-key
 
 			 use-package
 			 powerline
@@ -60,11 +63,21 @@
 ;;===================company=================
 (global-company-mode t)
 
-;;===================hungry-delete=================
-(global-hungry-delete-mode)
-(add-hook 'python-mode-hook 'anaconda-mode)
 (eval-after-load "company"
  '(add-to-list 'company-backends '(company-anaconda :with company-capf)))
+
+(add-hook 'python-mode-hook 'anaconda-mode)
+
+(defun my-annotation-function (candidate)
+  (let ((description (get-text-property 0 'description candidate)))
+    (when description
+      (concat "<" (substring description 0 1) ">"))))
+
+(setq company-anaconda-annotation-function 'my-annotation-function)
+
+;;===================hungry-delete=================
+(global-hungry-delete-mode)
+
 ;;===================swiper(ivy)=================
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
@@ -137,10 +150,13 @@
   "LIST of actions for `aw-dispatch-default'.")
 
 
-;;===================winum-=================
+;;===================winum=================
 (require 'winum)
 
 (winum-mode)
+
+;;===================which-key=================
+(which-key-mode t)
 
 ;;===================pyvenv-=================
 (use-package pyvenv

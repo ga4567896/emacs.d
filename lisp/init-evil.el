@@ -4,6 +4,13 @@
 (setcdr evil-insert-state-map nil)
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
 
+;; (dolist (mode '(occur-mode
+;; 		magit-mode
+;; 		magit-diff-mode
+;; 		ibuffer
+;; 		))
+;;   (add-to-list 'evil-emacs-state-modes mode))
+
 ;;==================evil-escape====================
 (setq-default evil-escape-delay 0.2)
 ;; (setq evil-escape-excluded-major-modes '(dired-mode))
@@ -12,8 +19,13 @@
 (evil-escape-mode 1)
 
 ;;==================evil-sorround====================
-(require 'evil-surround)
-(global-evil-surround-mode t)
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
+
+;;==================evil-nerd-commenter===================
+(evilnc-default-hotkeys)
 
 ;;==================evil-leader====================
 (global-evil-leader-mode)
@@ -48,9 +60,17 @@
   "es" 'eshell
   "sh" 'shell
 
-  "cf" 'counsel-grep ; grep current buffer
+  "gg" 'counsel-grep ; grep current buffer
   "gf" 'counsel-git ; find file
-  "gg" 'counsel-git-grep ; quickest grep should be easy to press
+  "ga" 'counsel-git-grep ; quickest grep should be easy to press
+
+  "ci" 'evilnc-comment-or-uncomment-lines
+  "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
+  "cc" 'evilnc-copy-and-comment-lines
+  "cp" 'evilnc-comment-or-uncomment-paragraphs
+  "cr" 'comment-or-uncomment-region
+  "cv" 'evilnc-toggle-invert-comment-line-by-line
+  "co" 'evilnc-copy-and-comment-operator
 
   "ew" 'pyvenv-workon
   "er" 'ein:run
@@ -61,6 +81,8 @@
 
   "lm" 'linum-mode
   "lr" 'linum-relative-mode
+
+  "qq" 'save-buffers-kill-terminal
   )
 
 (provide 'init-evil)
