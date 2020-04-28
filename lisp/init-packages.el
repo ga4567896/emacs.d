@@ -9,6 +9,7 @@
 			 company-anaconda
 			 rainbow-delimiters
 			 smartparens
+			 flycheck
 
 			 dracula-theme
 			 hungry-delete
@@ -40,6 +41,8 @@
 			 winum
 			 linum-relative
 
+			 command-log-mode
+
 			 ) "Default packages")
 
 (setq package-selected-packages Shawn/packages)
@@ -63,17 +66,17 @@
 ;;===================company=================
 (global-company-mode t)
 
-(eval-after-load "company"
- '(add-to-list 'company-backends '(company-anaconda :with company-capf)))
+;; (eval-after-load "company"
+;;  '(add-to-list 'company-backends '(company-anaconda :with company-capf)))
 
 (add-hook 'python-mode-hook 'anaconda-mode)
 
-(defun my-annotation-function (candidate)
-  (let ((description (get-text-property 0 'description candidate)))
-    (when description
-      (concat "<" (substring description 0 1) ">"))))
+(add-hook 'python-mode-hook
+	  (lambda ()
+	    (set (make-local-variable 'company-backends) '(company-anaconda company-dabbrev))))
 
-(setq company-anaconda-annotation-function 'my-annotation-function)
+(setq tramp-ssh-controlmaster-options
+      "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
 ;;===================hungry-delete=================
 (global-hungry-delete-mode)
@@ -115,6 +118,9 @@
 ;;===================tramp=================
 (require 'tramp)
 (setq tramp-default-method "plink")
+
+(setq tramp-ssh-controlmaster-options
+      "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
 ;;===================org-pomodoro=================
 (require 'org-pomodoro)
@@ -162,11 +168,12 @@
 (use-package pyvenv
   :ensure t
   :init
-  ;; (setenv "WORKON_HOME" "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v10.2/bin")
-  ;; (setenv "WORKON_HOME" "c:/Users/Shawn/anaconda3/envs/tensorflow")
   (setenv "WORKON_HOME" "c:/Users/Shawn/anaconda3/envs")
   (pyvenv-mode 1)
   (pyvenv-tracking-mode 1))
+
+;;===================flycheck-=================
+;; (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;;===================END==================
 (provide 'init-packages)

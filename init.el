@@ -15,7 +15,6 @@
 ;; add more personal func
 ;; new ini-func.el
 
-;; (require 'init-func.el)
 (require 'init-packages)
 (require 'init-ui)
 (require 'init-better-defaults)

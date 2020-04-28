@@ -4,16 +4,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-idle-delay 0.08)
- '(company-minimum-prefix-length 2)
+ '(company-minimum-prefix-length 1)
  '(custom-safe-themes
    (quote
     ("83ae405e25a0a81f2840bfe5daf481f74df0ddb687f317b5e005aa61261126e9" default)))
  '(ein:output-area-inlined-images t)
  '(evil-leader/leader "SPC")
- '(org-pomodoro-long-break-length 30)
- '(package-selected-packages
-   (quote
-    (company company-anaconda rainbow-delimiters smartparens dracula-theme hungry-delete swiper counsel evil evil-escape evil-leader evil-surround ibuffer-vc popwin expand-region iedit magit tramp org-pomodoro powerline diminish ace-window winum linum-relative))))
+ '(org-pomodoro-long-break-length 30))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
